@@ -14,6 +14,6 @@ scipy==1.4.1
 seaborn==0.10.1
 six==1.14.0
 statsmodels==0.11.1
--e git+git@github.com:Bicky23/stocks.git@45f7561665584063f59270d2d382ada0381b5700#egg=stocks
+-e git+git@github.com:Bicky23/stocks.git@fa9557fc6d68bebcdaee4d63c789209c4b9f36a0#egg=stocks
 termcolor==1.1.0
 threadpoolctl==2.0.0
