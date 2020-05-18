@@ -1,0 +1,18 @@
+{
+	"datasources":{
+		"n":"data/raw/n.csv",
+		"o":"data/raw/o.csv"
+	},
+
+	"models":{
+		"n":"models/linear_model.pkl",
+		"o":"models/gradient_model.pkl"
+	},
+
+	"dest_path":{
+		"n":"data/processed/n",
+		"o":"data/processed/o"
+	},
+
+	"train_size":0.8
+}
