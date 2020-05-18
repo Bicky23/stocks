@@ -18,7 +18,7 @@ converted to `.py` files for reproducability.
 ### Running the model
 
 - Prepare a virtual environment (recommended)
-- In the root directory, type `pip install requirements.txt` followed by `pip install -e .`
+- In the root directory, type `pip install -r requirements.txt` followed by `pip install -e .`
 - Next step is to train the model on data, lets say on "n.csv". Type `stocks-cmd "n"`. It does the following:
   - Generates processed data (train and test) and saves it directory `data/processed/n`
   - Saves outlier removal vectors in `models/`
