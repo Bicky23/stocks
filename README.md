@@ -64,7 +64,8 @@ Code for the same can found in `stocks/stocks/preprocess.py` containing the clas
 
 ### Model Building & Selection
 
-Six variants were tried out: **`Linear Regression`**, **`Decision Tree`**, **`Random Forest`** & **`Gradient Boosting`**. 
+Six variants were tried out: **`Linear Regression`**, **`Decision Tree`**, **`Random Forest`**, **`Gradient Boosting`**, **`Lasso Regression`** & **`Ridge Regression`**.
+ 
 Results are shown below for both files:
 
 - `*n.csv*`
