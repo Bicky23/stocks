@@ -5,13 +5,18 @@
 	},
 
 	"models":{
-		"n":"models/linear_model.pkl",
-		"o":"models/gradient_model.pkl"
+		"n":"models/dt_model.pkl",
+		"o":"models/linear_model.pkl"
 	},
 
 	"dest_path":{
 		"n":"data/processed/n",
 		"o":"data/processed/o"
+	},
+
+	"interest_cols":{
+		"n":["actual", "actual_1", "forecast", "forecast_1", "z-score", "z-score_1", "1", "1_1", "7_1"],
+		"o":["actual", "actual_1", "rolling_std_1", "z-score", "z-score_1", "1_1", "7_1"]
 	},
 
 	"train_size":0.8

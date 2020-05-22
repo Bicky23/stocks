@@ -28,7 +28,7 @@ converted to `.py` files for reproducability.
   
   To perform the same thing on "o.csv", replace `"n"` with `"o"`
 - Next step is to generate predictions on new data points for the model trained on a file, lets say "n.csv". 
-Type `stocks-cmd ask <actual> <forecast> <rolling-std> <z-score> <YYYY-MM-DD>`. It outputs the value of `#7`
+Type `stocks-cmd ask <filename> <actual> <forecast> <rolling-std> <z-score> <YYYY-MM-DD>`. It outputs the value of `#7`
 For generating new predictions for model trained on "o.csv", replace `"n"` with `"o"`
 
 
@@ -62,31 +62,30 @@ some experimentation
 Code for the same can found in `stocks/stocks/preprocess.py` containing the class `DataPreparation`.
 
 
-### Model Building
+### Model Building & Selection
 
-Four variants were tried out: **`Linear Regression`**, **`Decision Tree`**, **`Random Forest`** & **`Gradient Boosting`**. 
+Six variants were tried out: **`Linear Regression`**, **`Decision Tree`**, **`Random Forest`** & **`Gradient Boosting`**. 
 Results are shown below for both files:
 
 - `*n.csv*`
 
-  | Metrics | Persistence model | Linear Regression | Decision Tree | Random Forest | Gradient Boosting |
-  |---|---|---|---|---|---| 
-  | MAE | 0.058 | 0.039 | 0.0397 | 0.04 | 0.0375 | 
-  | MSE |  0.005 | 0.0025 | 0.0024 | 0.0024 | 0.0022 |
-  | Accuracy |  44% | 64.76% | 66.67% | 52.4% | 55.2% |
+  | Metrics | Persistence model | Linear Regression | Decision Tree | Random Forest | Gradient Boosting | Lasso | Ridge |
+  |---|---|---|---|---|---|---|---|
+  | MAE | 0.058 | 0.039 | 0.0397 | 0.04 | 0.0375 | 0.039 | 0.039 |
+  | MSE |  0.005 | 0.0025 | 0.0024 | 0.0024 | 0.0022 | 0.0025 | 0.0025 |
+  | Accuracy |  44% | 64.76% | 66.67% | 52.4% | 55.2% | 64.76% | 64.76% |
   
-  **Linear Regression** was chosen as the go-to model for this file as it had a good balance of all three metrics. Default
-  parameters were good for this model.
+  **Decision Tree Regression** was chosen as the go-to model for this file as it had a good balance of all three metrics. Default
+  parameters were good for this model. Moreover, on the observation of `Actual vs Predicted` value images, it was a better match.
 
 - `*o.csv*`
-  | Metrics | Persistence model | Linear Regression | Decision Tree | Random Forest | Gradient Boosting |
-  |---|---|---|---|---|---| 
-  | MAE | 0.036 | 0.016 | 0.018 | 0.0177 | 0.0164 | 
-  | MSE |  0.001 | 0.0004 | 0.00056 | 0.00053 | 0.00048 |
-  | Accuracy |  45.7% | 62.8% | 58.1% | 53.3% | 64% |
+  | Metrics | Persistence model | Linear Regression | Decision Tree | Random Forest | Gradient Boosting | Lasso | Ridge |
+  |---|---|---|---|---|---|---|---|
+  | MAE | 0.036 | 0.016 | 0.018 | 0.0177 | 0.0164 | 0.0158 | 0.0158 |
+  | MSE |  0.001 | 0.0004 | 0.00056 | 0.00053 | 0.00048 | 0.0004 | 0.0004 |
+  | Accuracy |  45.7% | 62.8% | 58.1% | 53.3% | 64% | 62.86% 62.86% |
   
-  **Gradient Boosting** was chosen as the go-to model for this file as it had a good balance of all three metrics. Its 
-  hyperparameters are **`criterion="mae`** & **`random_state=42`**
+  **Linear Regression** was chosen as the go-to model for this file as it had a good balance of all three metrics. Altough **Gradient Boosting** has a lower score on `MAE`, `MSE` and higher `accuracy`, on visualizing the `Actual vs Predicted` image, it was simply making persistence model scoring.
   
   Both the models can be found in `stocks/model.py` with class names `linearModel` and `gradientModel`.
   
