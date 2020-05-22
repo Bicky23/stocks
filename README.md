@@ -87,7 +87,7 @@ Results are shown below for both files:
   
   **Linear Regression** was chosen as the go-to model for this file as it had a good balance of all three metrics. Altough **Gradient Boosting** has a lower score on `MAE`, `MSE` and higher `accuracy`, on visualizing the `Actual vs Predicted` image, it was simply making persistence model scoring.
   
-  Both the models can be found in `stocks/model.py` with class names `linearModel` and `gradientModel`.
+  Both the models can be found in `stocks/model.py` with class names `linearModel` and `dtModel`.
   
   
   
